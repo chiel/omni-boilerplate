@@ -1,0 +1,13 @@
+{
+  "name": "omni.cm-boilerplate",
+  "version": "0.1.0",
+  "main": "app.js",
+  "author": "chielkunkels",
+  "license": "MIT",
+  "dependencies": {
+    "omni.cm": "*"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}
