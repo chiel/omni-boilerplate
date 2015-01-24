@@ -1,9 +1,18 @@
 {
   "name": "omni.cm-boilerplate",
   "version": "0.1.0",
+  "description": "Kickstart your omni cms project with this boilerplate",
   "main": "app.js",
   "author": "chielkunkels",
   "license": "MIT",
+  "homepage": "https://github.com/chielkunkels/omni-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chielkunkels/omni-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chielkunkels/omni-boilerplate/issues"
+  },
   "dependencies": {
     "omni.cm": "*"
   },
