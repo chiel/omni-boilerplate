@@ -5,19 +5,26 @@ var fs = require('fs'),
 	omniGulp = require('omni.cm/gulp'),
 	config = require('omni.cm/gulp/config'),
 	readCssDir = require('omni.cm/gulp/readcssdir'),
-	readJsDir = require('omni.cm/gulp/readjsdir');
+	readJsDir = require('omni.cm/gulp/readjsdir'),
+	readImg = require('omni.cm/gulp/readimg');
 
-var match;
-fs.readdirSync(__dirname + '/node_modules')
-.forEach(function(moduleName){
+config.nodemon.watch.push(__dirname);
+
+var match, modulePath, dir = __dirname + '/node_modules';
+fs.readdirSync(dir).forEach(function(moduleName){
 	match = moduleName.match(/^omni\.cm-(.+)/);
 	if (!match) return;
 
-	readCssDir(__dirname + '/node_modules/' + moduleName + '/assets/stylesheets', match[1]);
-	readJsDir(__dirname + '/node_modules/' + moduleName + '/assets/scripts', match[1]);
+	modulePath = dir + '/' + moduleName;
 
-	if (fs.existsSync(__dirname + '/node_modules/' + moduleName + '/gulpfile.js')){
-		require(moduleName + '/gulpfile')(gulp, config);
+	config.nodemon.watch.push(modulePath);
+
+	readCssDir(modulePath + '/assets/styles', match[1]);
+	readJsDir(modulePath + '/assets/scripts', match[1]);
+	readImg(modulePath + '/assets/images', match[1]);
+
+	if (fs.existsSync(modulePath + '/gulpfile.js')){
+		require(modulePath + '/gulpfile')(gulp, config);
 	}
 });
 
