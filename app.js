@@ -10,4 +10,11 @@ fs.readdirSync(dir).forEach(function(moduleName){
 	omni.loadModule(dir + '/' + moduleName);
 });
 
+dir = __dirname + '/modules';
+if (fs.existsSync(dir)){
+	fs.readdirSync(dir).forEach(function(moduleName){
+		omni.loadModule(dir + '/' + moduleName);
+	});
+}
+
 omni.listen();

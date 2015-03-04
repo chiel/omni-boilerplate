@@ -28,4 +28,20 @@ fs.readdirSync(dir).forEach(function(moduleName){
 	}
 });
 
+dir = __dirname + '/modules';
+fs.readdirSync(dir).forEach(function(moduleName){
+	modulePath = dir + '/' + moduleName;
+	console.log('reading dir', modulePath);
+
+	config.nodemon.watch.push(modulePath);
+
+	readCssDir(modulePath + '/assets/styles', moduleName);
+	readJsDir(modulePath + '/assets/scripts', moduleName);
+	readImg(modulePath + '/assets/images', moduleName);
+
+	if (fs.existsSync(modulePath + '/gulpfile.js')){
+		require(modulePath + '/gulpfile')(gulp, config);
+	}
+});
+
 omniGulp(gulp);
