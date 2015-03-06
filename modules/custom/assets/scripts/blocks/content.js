@@ -8,11 +8,6 @@ var Base = require('builder/blocks/base');
 var Content = function(style, data){
 	if (!(this instanceof Content)) return new Content();
 
-	this.meta = {
-		type: 'content',
-		name: 'Content'
-	};
-
 	this.formSpec = {
 		pages: [{ groups: ['group1'] }],
 		groups: {
@@ -38,6 +33,11 @@ var Content = function(style, data){
 };
 
 require('inherits')(Content, Base);
+
+Content.prototype.meta = Content.meta = {
+	name: 'Content',
+	description: 'Content block'
+};
 
 Content.prototype.getTitle = function(){
 	return this.form.fields.title.getValue();
