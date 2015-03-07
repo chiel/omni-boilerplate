@@ -17,4 +17,6 @@ if (fs.existsSync(dir)){
 	});
 }
 
+omni.setNavigation(require('./navigation.json'));
+
 omni.listen();

@@ -1,0 +1,19 @@
+[
+	{
+		"label": "Administration",
+		"children": [
+			{
+				"label": "Users",
+				"url": "/users/"
+			},
+			{
+				"label": "Roles",
+				"url": "/roles/"
+			}
+		]
+	},
+	{
+		"label": "Pages",
+		"url": "/pages/"
+	}
+]
