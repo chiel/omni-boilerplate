@@ -1,0 +1,11 @@
+{
+	"api": {
+		"secret": "keyboard-cat",
+		"token": {
+			"secret": "keyboard-cat"
+		}
+	},
+	"session": {
+		"secret": "keyboard-cat"
+	}
+}

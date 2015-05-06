@@ -1,7 +1,13 @@
 'use strict';
 
-var fs = require('fs'),
-	omni = require('omni.cm')();
+var fs = require('fs');
+var config;
+
+if (fs.existsSync(__dirname + '/config.json')){
+	config = require(__dirname + '/config.json');
+}
+
+var omni = require('omni.cm')(config);
 
 var match, dir = __dirname + '/node_modules';
 fs.readdirSync(dir).forEach(function(moduleName){
