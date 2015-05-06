@@ -9,13 +9,15 @@ if (fs.existsSync(__dirname + '/config.json')){
 
 var omni = require('omni.cm')(config);
 
-var match, dir = __dirname + '/node_modules';
+// load generic omni modules
+var dir = __dirname + '/node_modules';
 fs.readdirSync(dir).forEach(function(moduleName){
-	match = moduleName.match(/^omni\.cm-(.+)/);
-	if (!match) return;
-	omni.registerModule(dir + '/' + moduleName);
+	if (/^omni\.cm-.+/.test(moduleName)){
+		omni.registerModule(dir + '/' + moduleName);
+	}
 });
 
+// load cms-specific modules
 dir = __dirname + '/modules';
 if (fs.existsSync(dir)){
 	fs.readdirSync(dir).forEach(function(moduleName){
