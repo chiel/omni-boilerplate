@@ -35,6 +35,7 @@ var Content = function(style, data){
 require('inherits')(Content, Base);
 
 Content.prototype.meta = Content.meta = {
+	type: 'content',
 	name: 'Content',
 	description: 'Content block'
 };
