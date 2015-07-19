@@ -1,10 +1,15 @@
 'use strict';
 
+var deepMixIn = require('mout/object/deepMixIn');
 var fs = require('fs');
-var config;
+var config = {};
 
 if (fs.existsSync(__dirname + '/config.json')){
-	config = require(__dirname + '/config.json');
+	deepMixIn(config, require(__dirname + '/config.json'));
+}
+
+if (fs.existsSync(__dirname + '/config-local.json')){
+	deepMixIn(config, require(__dirname + '/config-local.json'));
 }
 
 var omni = require('omni.cm')(config);
