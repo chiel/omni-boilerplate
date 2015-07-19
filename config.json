@@ -1,11 +1,7 @@
 {
+	"listen": 4568,
 	"api": {
-		"secret": "keyboard-cat",
-		"token": {
-			"secret": "keyboard-cat"
-		}
+		"listen": 4569
 	},
-	"session": {
-		"secret": "keyboard-cat"
-	}
+	"mongo": "mongodb://127.0.0.1:27017/tasteit"
 }
