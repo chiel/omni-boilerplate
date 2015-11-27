@@ -1,3 +1,5 @@
 'use strict';
 
-require('builder/blocks').content = require('./blocks/content');
+var blocks = require('builder/blocks');
+blocks.content = require('./blocks/content');
+blocks.header = require('./blocks/header');
